@@ -1,0 +1,15 @@
+- name: "/etc/hosts: Add records / Empty Line"
+  lineinfile:
+    backup: yes
+    path: /etc/hosts
+    insertafter: EOF
+    line: ""
+
+- name: "/etc/hosts: Add records"
+  lineinfile:
+    backup: yes
+    path: /etc/hosts
+    insertafter: EOF
+    line: "{{ hostvars[item]['ansible_host'] }}    {{ hostvars[item]['ansible_hostname'] }}"
+  with_items:
+    - "{{ groups['all'] }}"
