@@ -1,6 +1,6 @@
 - name: "Linux Config"
   hosts:
-    - dolphin_scheduler
+    - doris
   roles:
     - linux
   vars_files:
