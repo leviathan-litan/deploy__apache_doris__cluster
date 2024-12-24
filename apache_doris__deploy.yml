@@ -9,3 +9,15 @@
   become: yes
   become_user: root
   become_method: sudo
+
+- name: "Deploy Java"
+  hosts:
+    - doris
+  roles:
+    - java
+  vars_files:
+    - vars/apache_doris__deploy.yml
+  gather_facts: yes
+  become: yes
+  become_user: root
+  become_method: sudo
