@@ -17,3 +17,9 @@ linux__chrony_install_media: "chrony.zip"
 linux__chrony_install_media_upload: "/upload/chrony"
 
 linux__dir_yum_repofile_backup: "/upload/yum_repofile"
+
+# %%%%%%%%%%%%%%%%%%%% ROLE: JAVA
+
+java__install_media: "{{ dir__ansible_server__files }}/java/jdk-17.0.10_linux-x64_bin.tar.gz"
+java__dir_base: "/usr/local"
+java__dir_home: "{{ java__dir_base }}/jdk-17.0.10"
