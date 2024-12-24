@@ -1,0 +1,4 @@
+create database {{ doris_manager__mysql_db_name }};
+CREATE USER '{{ doris_manager__mysql_db_user }}'@'%' IDENTIFIED with mysql_native_password BY '{{ doris_manager__mysql_db_password }}';
+GRANT ALL ON {{ doris_manager__mysql_db_name }}.* TO '{{ doris_manager__mysql_db_user }}'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;

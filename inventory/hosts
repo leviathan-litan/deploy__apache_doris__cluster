@@ -1,6 +1,9 @@
 [mysql]
 mysql ansible_host=192.168.5.108 ansible_port=22 ansible_user="admin" ansible_ssh_pass="oracle" ansible_become_password="oracle"
 
+[doris_manager]
+doris_manager ansible_host=192.168.5.108 ansible_port=22 ansible_user="admin" ansible_ssh_pass="oracle" ansible_become_password="oracle"
+
 [doris_fe]
 fe01 ansible_host=192.168.5.108 ansible_port=22 ansible_user="admin" ansible_ssh_pass="oracle" ansible_become_password="oracle"
 fe02 ansible_host=192.168.5.109 ansible_port=22 ansible_user="admin" ansible_ssh_pass="oracle" ansible_become_password="oracle"
@@ -12,6 +15,7 @@ be02 ansible_host=192.168.5.109 ansible_port=22 ansible_user="admin" ansible_ssh
 be03 ansible_host=192.168.5.110 ansible_port=22 ansible_user="admin" ansible_ssh_pass="oracle" ansible_become_password="oracle"
 
 [doris:children]
+mysql
+doris_manager
 doris_fe
 doris_be
-mysql

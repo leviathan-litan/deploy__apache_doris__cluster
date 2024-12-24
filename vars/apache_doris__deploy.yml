@@ -33,7 +33,7 @@ java__dir_home: "{{ java__dir_base }}/jdk-17.0.10"
 
 # --- 开关
 
-mysql__enabled_create_db_user: yes
+# mysql__enabled_create_db_user: yes
 
 # --- 参数
 
@@ -53,3 +53,25 @@ mysql__dir_upload: "/upload/mysql"
 mysql__install_media_uploaded: "{{ mysql__dir_upload }}/install_media"
 
 mysql__dir_data: "/data/mysql"
+
+mysql__sql_files:
+  - sql: "create_user.sql"
+    temp: "create_user.sql.j2"
+  - sql: "create_database.sql"
+    temp: "create_database.sql.j2"
+
+# %%%%%%%%%%%%%%%%%%%% ROLE: Doris Manager
+
+doris_manager__install_media: "{{ dir__ansible_server__files }}/doris_manager/doris-manager-24.1.4-x64-bin.tar.gz"
+
+doris_manager__dir_upload: "/upload/doris_manager"
+doris_manager__install_media_uploaded: "{{ doris_manager__dir_upload }}/doris-manager-24.1.4-x64-bin.tar.gz"
+
+doris_manager__dir_home: "/data/doris_manager"
+
+doris_manager__mysql_db_host: "192.168.5.108"
+doris_manager__mysql_db_port: 3306
+
+doris_manager__mysql_db_name: "doris_manager"
+doris_manager__mysql_db_user: "doris_admin"
+doris_manager__mysql_db_password: "Doris@123"
