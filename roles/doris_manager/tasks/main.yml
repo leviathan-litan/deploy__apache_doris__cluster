@@ -34,3 +34,11 @@
 # - name: "uncompress doris_manager install media"
 #   shell: |
 #     tar -xzf {{ doris_manager__install_media_uploaded }} -C {{ doris_manager__dir_home }}
+
+- name: "doris_manager webserver / config file / manager.conf"
+  template:
+    owner: root
+    group: root
+    mode: 0755
+    src: "webserver_manager.conf.j2"
+    dest: "{{ doris_manager__dir_home }}/webserver/conf/manager.conf"

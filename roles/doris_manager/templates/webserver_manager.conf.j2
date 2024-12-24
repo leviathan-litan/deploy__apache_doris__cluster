@@ -1,0 +1,88 @@
+# Copyright 2023 SelectDB, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# http port
+MANAGER_PORT=8004
+
+# WebUI component http port
+WEBUI_PORT=8006
+
+# WebUI component jvm options
+WEBUI_JAVA_OPTS=-Xmx1024m
+
+# The deployment depends on three data service types: mysql/h2/postgresql. h2 is supported by default.
+# DB_TYPE=h2
+DB_TYPE=mysql
+
+# h2 database data path, the default is the relative path.
+# If configuration is required, please configure the absolute path.
+DATA_PATH=
+
+# If you want to use mysql/postgresql, you need to configure the following connection information
+# mysql/postgresql connection address
+DB_HOST={{ doris_manager__mysql_db_host }}
+
+# mysql/postgresql connection port
+DB_PORT={{ doris_manager__mysql_db_port }}
+
+# mysql/postgresql connect access user
+DB_USER={{ doris_manager__mysql_db_user }}
+
+# mysql/postgresql/h2 connection access user password
+DB_PASS={{ doris_manager__mysql_db_password }}
+
+# mysql/postgresql database accessed by the service（database）
+DB_DBNAME={{ doris_manager__mysql_db_name }}
+
+# mysql database connect url suffix
+DB_URL_SUFFIX='?useSSL=false&useUnicode=true&characterEncoding=UTF-8'
+
+INSPECTION_RES_MAX_AGE=1209600
+
+# timeout for http handshake (seconds)
+# HTTP_CONNECT_TIMEOUT=30
+HTTP_CONNECT_TIMEOUT=240
+
+# timeout for http receiving response (seconds)
+# HTTP_SOCKET_TIMEOUT=60
+HTTP_SOCKET_TIMEOUT=240
+
+# make webserver process prefer to listen on IPV4, IPV6 or ALL
+LISTEN_PROTOCOL=ALL
+
+# weather to open swagger api (FALSE or TRUE)
+SWAGGER_ENABLE=FALSE
+
+# min disk space for FE upgrade(default 10 GB)
+FE_MIN_DISK_SPACE_FOR_UPGRADE=10
+
+# min disk space for BE upgrade(default 10 GB)
+BE_MIN_DISK_SPACE_FOR_UPGRADE=10
+
+# whether to enable mail debug when sending email or not(FALSE or TRUE)
+MAIL_DEBUG_ENABLE=FALSE
+
+# GET replication num timeout(in order to prevent querying replication num hanging too long), unit (seconds), default 10 minutes
+QUERY_REPLICATION_NUM_TIMEOUT=6000
+
+# upgrade check cluster status timeout(in order to prevent querying unfinished job hanging too long), unit (seconds), default 10 minutes
+UPGRADE_CHECK_CLUSTER_STATUS_TIMEOUT=6000
+
+# Default master branch managed version
+# MASTER_BRANCH_VERSION=0.0.0
+
+# config external ip address if needed.
+# MANAGER_SERVER_IP=
+
+# job executor thread num
+# JOB_EXECUTOR_THREAD_NUM=50
