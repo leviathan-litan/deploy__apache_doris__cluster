@@ -42,3 +42,7 @@
     mode: 0755
     src: "webserver_manager.conf.j2"
     dest: "{{ doris_manager__dir_home }}/webserver/conf/manager.conf"
+
+- name: "doris_manager / run web service"
+  shell: |
+    sh {{ doris_manager__dir_home }}/webserver/bin/start.sh
