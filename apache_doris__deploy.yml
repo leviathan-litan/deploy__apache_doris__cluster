@@ -21,3 +21,11 @@
   become: yes
   become_user: root
   become_method: sudo
+
+- name: "Deploy MySQL"
+  hosts:
+    - mysql
+  roles:
+    - mysql
+  vars_files:
+    - vars/apache_doris__deploy.yml

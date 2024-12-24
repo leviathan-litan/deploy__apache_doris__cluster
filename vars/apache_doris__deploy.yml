@@ -20,6 +20,36 @@ linux__dir_yum_repofile_backup: "/upload/yum_repofile"
 
 # %%%%%%%%%%%%%%%%%%%% ROLE: JAVA
 
+# Doris 的所有进程都依赖 Java。
+
+# 在 2.1（含）版本之前，请使用 Java 8，推荐版本：openjdk-8u352-b08-linux-x64。
+# 从 3.0（含）版本之后，请使用 Java 17，推荐版本：jdk-17.0.10_linux-x64_bin.tar.gz。
+
 java__install_media: "{{ dir__ansible_server__files }}/java/jdk-17.0.10_linux-x64_bin.tar.gz"
 java__dir_base: "/usr/local"
 java__dir_home: "{{ java__dir_base }}/jdk-17.0.10"
+
+# %%%%%%%%%%%%%%%%%%%% ROLE: MYSQL
+
+# --- 开关
+
+mysql__enabled_create_db_user: yes
+
+# --- 参数
+
+# Cluster
+# Standalone
+mysql__deploy_arch: standalone
+
+# 数据库时区
+mysql__default_timezone: "+08:00"
+
+mysql__db_root_password: "Root@123"
+
+# mysql__install_media: "MySQL__8.2.0.1__el7_x86_64_rpms.zip"
+mysql__install_media: "{{ dir__ansible_server__files }}/mysql/MySQL__8.2.0.1__el7_x86_64_rpms.zip"
+
+mysql__dir_upload: "/upload/mysql"
+mysql__install_media_uploaded: "{{ mysql__dir_upload }}/install_media"
+
+mysql__dir_data: "/data/mysql"
