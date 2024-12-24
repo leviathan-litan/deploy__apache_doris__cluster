@@ -33,3 +33,15 @@
   become: yes
   become_user: root
   become_method: sudo
+
+- name: "Deploy Doris Manager"
+  hosts:
+    - doris_manager
+  roles:
+    - doris_manager
+  vars_files:
+    - vars/apache_doris__deploy.yml
+  gather_facts: yes
+  become: yes
+  become_user: root
+  become_method: sudo

@@ -9,16 +9,24 @@
     - "{{ doris_manager__dir_home }}"
     - "{{ doris_manager__dir_upload }}"
 
-- name: "upload doris_manager install media"
-  copy:
-    force: yes
+- name: "upload and uncompress mysql install media"
+  unarchive:
     owner: root
     group: root
     mode: 0755
-    remote_src: no
     src: "{{ doris_manager__install_media }}"
     dest: "{{ doris_manager__install_media_uploaded }}"
 
-- name: "uncompress doris_manager install media"
-  shell: |
-    tar -xzf {{ doris_manager__install_media_uploaded }} -C {{ doris_manager__dir_home }}
+# - name: "upload doris_manager install media"
+#   copy:
+#     force: yes
+#     owner: root
+#     group: root
+#     mode: 0755
+#     remote_src: no
+#     src: "{{ doris_manager__install_media }}"
+#     dest: "{{ doris_manager__install_media_uploaded }}"
+
+# - name: "uncompress doris_manager install media"
+#   shell: |
+#     tar -xzf {{ doris_manager__install_media_uploaded }} -C {{ doris_manager__dir_home }}
