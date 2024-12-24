@@ -65,7 +65,7 @@ mysql__sql_files:
 doris_manager__install_media: "{{ dir__ansible_server__files }}/doris_manager/doris-manager-24.1.4-x64-bin.tar.gz"
 
 doris_manager__dir_upload: "/upload/doris_manager"
-doris_manager__install_media_uploaded: "{{ doris_manager__dir_upload }}"
+doris_manager__install_media_uploaded: "{{ doris_manager__dir_upload }}/doris-manager-24.1.4-x64-bin"
 
 doris_manager__dir_home: "/data/doris_manager"
 

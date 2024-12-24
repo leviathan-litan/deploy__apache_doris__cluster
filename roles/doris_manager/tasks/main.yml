@@ -9,13 +9,17 @@
     - "{{ doris_manager__dir_home }}"
     - "{{ doris_manager__dir_upload }}"
 
-- name: "upload and uncompress mysql install media"
+- name: "upload and uncompress doris_manager install media"
   unarchive:
     owner: root
     group: root
     mode: 0755
     src: "{{ doris_manager__install_media }}"
-    dest: "{{ doris_manager__install_media_uploaded }}"
+    dest: "{{ doris_manager__dir_upload }}"
+
+- name: "copy doris_manager to doris_manager home directory"
+  shell: |
+    cp -rf {{ doris_manager__install_media_uploaded }}/* {{ doris_manager__dir_home }}
 
 # - name: "upload doris_manager install media"
 #   copy:
